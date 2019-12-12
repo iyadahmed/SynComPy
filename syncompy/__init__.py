@@ -6,8 +6,8 @@ Created on Wed Nov  6 16:14:24 2019
 """
 
 import comtypes.client as client
-from SynComDefs import *
-from hfuncs import *
+from .SynComDefs import *
+from .hfuncs import *
 class EventSink(object):
     def __init__(self, syndev, synpac):
         self._syndev = syndev
