@@ -1,3 +1,4 @@
+#extracted from syncomapiV1.0
 SP_First=268435456
 SP_Version=268435457
 SP_SynComDllVersion=268435457

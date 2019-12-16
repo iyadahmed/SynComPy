@@ -1,11 +1,14 @@
-from syncompy import syn
+from syncompy import SynDevice, SynComDefs as defs
 #packet_handler to print xy position of finger on touchpad
-def packet_handler(packet):
-    print(packet.X, packet.Y)
-
+def eventHandler(event):
+    x = event.X
+    y = event.Y
+    if event.TouchEnd: print(f"End {x} {y}")
+    elif event.TouchBegin: print(f"Begin {x} {y}")
+    elif event.TouchInProgress: print(f"Progress {x} {y}")
 #init syncomapi
-mypad = syn()
-#connect to first available device and catch its events
-mypad.Connect(0)
-#set event handler for touch begin and end to packet_handler
-mypad.trigger(begin = packet_handler, end = packet_handler)
+mypad = SynDevice()
+mypad.Find()
+#Connect to event handler
+mypad.Select(handler = eventHandler)
+print(mypad.GetProperty(defs.SP_ModelString, string = True))
