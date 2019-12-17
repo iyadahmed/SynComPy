@@ -6,6 +6,7 @@ def cap(x,a,b):
     if x > b: return b
     elif x < a: return a
     else: return x
+
 class bswitch(object):
     def __init__(self, value):
         self._last = value
@@ -19,12 +20,3 @@ class bswitch(object):
             self._out = 0
         self._last = value
         return self._out
-    
-    
-if __name__ == "__main__":
-    foo = bswitch(0)
-    print(foo.update(0))
-    print(foo.update(1))
-    print(foo.update(1))
-    print(foo.update(1))
-    print(foo.update(0))
