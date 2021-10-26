@@ -35,7 +35,8 @@ class SynDevice:
 
     def on_packet(self, packet):
         pass
-
+    
+    # DO NOT EVER DO THIS, TODO: make a context manager instead
     def __del__(self):
         self._syndev.Deactivate()
         self._connection.disconnect()
